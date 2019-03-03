@@ -3,9 +3,13 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def new
+  end
+
   def create
-  Post.create(title: params[:post][:title], description: params[:post][:description])
-  redirect_to posts_path
-end
+    student=Student.new({first_name: params[:first_name], last_name: params[:last_name]})
+    student.save
+    redirect_to student
+  end
 
 end
